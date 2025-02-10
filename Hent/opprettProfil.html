@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opprett Ny Profil</title>
-    <link rel="stylesheet" href="opprettProfil.css"> <!-- Linking the external CSS file -->
+    <link rel="stylesheet" href="opprettProfil.css">
 </head>
 <body>
-
 
     <h1>OPPRETT NY PROFIL</h1>
 
@@ -79,46 +78,40 @@
         </div>
 
         <div class="button-container">
-            <button type="submit" onclick="saveFormData(); clearFields(); ">LAGRE</button>
+            <button type="submit" onclick="saveFormData(); clearFields();">LAGRE</button>
         </div>
     </div>
 
     <script>
         function clearFields() {
-        // Henter alle input-felt av type tekst og e-post
-        let inputs = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
-        
-        // Går gjennom hvert element og fjerner verdien
-        inputs.forEach(input => input.value = '');
-
-        // Tilbakestill valgmenyen til første alternativ
-        document.getElementById('kundetype').selectedIndex = 0;
+            let inputs = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
+            inputs.forEach(input => input.value = '');
+            document.getElementById('kundetype').selectedIndex = 0;
         }
 
         function saveFormData() {
-        // Henter verdiene fra inputfeltene
-        let kundegruppe = document.getElementById('kundetype').value;
-        let orgnr = document.getElementById('orgnr').value;
+            let formData = {
+                kundegruppe: document.getElementById('kundetype').value,
+                orgnr: document.getElementById('orgnr').value,
+                styreleder: document.getElementById('styreleder').value,
+                navn: document.getElementById('navn').value,
+                telefon: document.getElementById('telefon').value,
+                adresse1: document.getElementById('adresse1').value,
+                epost: document.getElementById('epost').value,
+                adresse2: document.getElementById('adresse2').value,
+                kontaktperson: document.getElementById('kontaktperson').value,
+                postnr: document.getElementById('postnr').value,
+                sted: document.getElementById('sted').value,
+                kommentarer: document.getElementById('kommentarer').value
+            };
 
-        // Oppretter et objekt med dataene
-        let formData = {
-            kundegruppe: kundegruppe,
-            orgnr: orgnr
-        };
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push(formData);
+            localStorage.setItem('users', JSON.stringify(users));
 
-        // Henter eksisterende data fra localStorage eller lager en tom liste
-        let users = JSON.parse(localStorage.getItem('users')) || [];
-
-        // Legger til nye data i listen
-        users.push(formData);
-
-        // Lagrer listen tilbake i localStorage
-        localStorage.setItem('users', JSON.stringify(users));
-
-        // Navigerer til Users List-siden
-        window.location.href = 'data.html';
+            window.location.href = 'data.html';
         }
     </script>
-    
+
 </body>
 </html>

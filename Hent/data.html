@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +24,16 @@
         <tr>
             <th>Kundegruppe</th>
             <th>Organisasjonsnummer</th>
+            <th>Styreleder</th>
+            <th>Navn på borettslag</th>
+            <th>Telefonnummer</th>
+            <th>Adresse 1</th>
+            <th>E-post</th>
+            <th>Adresse 2</th>
+            <th>Kontaktperson</th>
+            <th>Postnr.</th>
+            <th>Sted</th>
+            <th>Kommentarer</th>
         </tr>
     </thead>
     <tbody>
@@ -34,19 +44,21 @@
     function loadUsers() {
         let users = JSON.parse(localStorage.getItem('users')) || [];
         let tableBody = document.querySelector("#purchases tbody");
-        tableBody.innerHTML = ""; // Tømmer eksisterende innhold før lasting
+        tableBody.innerHTML = "";
 
         users.forEach(user => {
             let row = tableBody.insertRow();
-            row.insertCell(0).textContent = user.kundegruppe;
-            row.insertCell(1).textContent = user.orgnr;
+            Object.values(user).forEach(value => {
+                let cell = row.insertCell();
+                cell.textContent = value;
+            });
         });
     }
 
     function clearDatabase() {
         if (confirm("Er du sikker på at du vil slette alle brukere?")) {
-            localStorage.removeItem('users'); // Fjerner data fra localStorage
-            loadUsers(); // Oppdaterer tabellen (nå tom)
+            localStorage.removeItem('users');
+            loadUsers();
         }
     }
 
