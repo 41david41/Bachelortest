@@ -79,7 +79,7 @@
         </div>
 
         <div class="button-container">
-            <button type="submit" onclick="clearFields()">LAGRE</button>
+            <button type="submit" onclick="saveFormData(); clearFields(); ">LAGRE</button>
         </div>
     </div>
 
@@ -93,6 +93,30 @@
 
         // Tilbakestill valgmenyen til første alternativ
         document.getElementById('kundetype').selectedIndex = 0;
+        }
+
+        function saveFormData() {
+        // Henter verdiene fra inputfeltene
+        let kundegruppe = document.getElementById('kundetype').value;
+        let orgnr = document.getElementById('orgnr').value;
+
+        // Oppretter et objekt med dataene
+        let formData = {
+            kundegruppe: kundegruppe,
+            orgnr: orgnr
+        };
+
+        // Henter eksisterende data fra localStorage eller lager en tom liste
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Legger til nye data i listen
+        users.push(formData);
+
+        // Lagrer listen tilbake i localStorage
+        localStorage.setItem('users', JSON.stringify(users));
+
+        // Navigerer til Users List-siden
+        window.location.href = 'data.html';
         }
     </script>
     
