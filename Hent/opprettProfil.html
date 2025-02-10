@@ -78,7 +78,7 @@
         </div>
 
         <div class="button-container">
-            <button type="submit" onclick="saveFormData(); clearFields();">LAGRE</button>
+            <button type="submit" onclick="saveFormData(event); clearFields();">LAGRE</button>
         </div>
     </div>
 
@@ -89,7 +89,9 @@
             document.getElementById('kundetype').selectedIndex = 0;
         }
 
-        function saveFormData() {
+        function saveFormData(event) {
+            event.preventDefault();  // Forhindrer siden fra å laste på nytt
+
             let formData = {
                 kundegruppe: document.getElementById('kundetype').value,
                 orgnr: document.getElementById('orgnr').value,
@@ -109,7 +111,7 @@
             users.push(formData);
             localStorage.setItem('users', JSON.stringify(users));
 
-            window.location.href = 'data.html';
+            
         }
     </script>
 
