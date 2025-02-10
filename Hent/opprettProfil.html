@@ -9,11 +9,12 @@
 <body>
 
 
-    <h2>OPPRETT NY PROFIL</h2>
+    <h1>OPPRETT NY PROFIL</h1>
 
     <div class="container">
         <label for="kundetype">Kundegruppe</label>
         <select id="kundetype">
+            <option>-Velg-</option>
             <option>Borettslag</option>
         </select>
 
@@ -78,13 +79,22 @@
         </div>
 
         <div class="button-container">
-            <button type="submit">LAGRE</button>
+            <button type="submit" onclick="clearFields()">LAGRE</button>
         </div>
     </div>
 
     <script>
+        function clearFields() {
+        // Henter alle input-felt av type tekst og e-post
+        let inputs = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
         
-    </script>
+        // Går gjennom hvert element og fjerner verdien
+        inputs.forEach(input => input.value = '');
 
+        // Tilbakestill valgmenyen til første alternativ
+        document.getElementById('kundetype').selectedIndex = 0;
+        }
+    </script>
+    
 </body>
 </html>
