@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opprett Ny Profil</title>
+    <link rel="stylesheet" href="opprettProfil.css"> <!-- Linking the external CSS file -->
+</head>
+<body>
+
+
+    <h1>OPPRETT NY PROFIL</h1>
+
+    <div class="container">
+        <label for="kundetype">Kundegruppe</label>
+        <select id="kundetype">
+            <option>Borettslag</option>
+        </select>
+
+        <div class="form-group">
+            <div>
+                <label for="orgnr">Organisasjonsnummer</label>
+                <input type="text" id="orgnr" placeholder="Text Here...">
+            </div>
+            <div>
+                <label for="styreleder">Styreleder</label>
+                <input type="text" id="styreleder" placeholder="Text Here...">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="navn">Navn på borettslag</label>
+                <input type="text" id="navn" placeholder="Text Here...">
+            </div>
+            <div>
+                <label for="telefon">Telefonnummer</label>
+                <input type="text" id="telefon" placeholder="Text Here...">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="adresse1">Adresse 1</label>
+                <input type="text" id="adresse1" placeholder="Text Here...">
+            </div>
+            <div>
+                <label for="epost">E-post</label>
+                <input type="email" id="epost" placeholder="Text Here...">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="adresse2">Adresse 2</label>
+                <input type="text" id="adresse2" placeholder="Text Here...">
+            </div>
+            <div>
+                <label for="kontaktperson">Kontaktperson</label>
+                <input type="text" id="kontaktperson" placeholder="Text Here...">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="postnr">Postnr.</label>
+                <input type="text" id="postnr" placeholder="Text Here...">
+            </div>
+            <div>
+                <label for="sted">Sted</label>
+                <input type="text" id="sted" placeholder="Text Here...">
+            </div>
+        </div>
+
+        <div>
+            <label for="kommentarer">Kommentarer</label>
+            <textarea id="kommentarer" rows="4" placeholder="Text Here..."></textarea>
+        </div>
+
+        <div class="button-container">
+            <button type="submit">LAGRE</button>
+        </div>
+    </div>
+
+</body>
+</html>
