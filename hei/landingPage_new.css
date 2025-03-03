@@ -1,0 +1,130 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0D1B2A;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #0f2a52;
+}
+
+/* Logo */
+.logo img {
+    height: 40px;
+}
+
+/* Profile */
+.profile {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    
+}
+
+.profile:hover {
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+    background-color: #0f2a526b;
+}
+
+.profile-circle {
+    width: 35px;
+    height: 35px;
+    background: rgb(170, 93, 93);
+    color: rgb(194, 15, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+
+/* Top Section */
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 100;
+}
+
+/* "Ny Kunde" Button */
+.new-customer {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 28px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Card Grid */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Card */
+.card {
+    background: #E0E1DD;
+    color: black;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.image-placeholder {
+    width: 80px;
+    height: 80px;
+    background: #8D99AE;
+    border-radius: 6px;
+}
+
+/* Text inside card */
+.card-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.card h2 {
+    font-size: 16px;
+    font-weight: 100;
+    margin: 0;
+}
+
+.card p {
+    font-size: 8px;
+    margin: 2px 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
